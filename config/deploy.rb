@@ -42,39 +42,39 @@ task :environment do
   # invoke :'rvm:use', 'ruby-1.9.3-p125@default'
 
   # 在服务器项目目录的shared中创建log文件夹
-  queue! %[mkdir -p "#{fetch(:deploy_to)}/shared/log"]
-  queue! %[chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/log"]
+  command %[mkdir -p "#{fetch(:deploy_to)}/shared/log"]
+  command %[chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/log"]
 
   # 在服务器项目目录的shared中创建config文件夹 下同
-  queue! %[mkdir -p "#{fetch(:deploy_to)}/shared/config"]
-  queue! %[chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/config"]
+  command %[mkdir -p "#{fetch(:deploy_to)}/shared/config"]
+  command %[chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/config"]
 
-  queue! %[touch "#{fetch(:deploy_to)}/shared/config/database.yml"]
-  queue! %[touch "#{fetch(:deploy_to)}/shared/config/secrets.yml"]
+  command %[touch "#{fetch(:deploy_to)}/shared/config/database.yml"]
+  command %[touch "#{fetch(:deploy_to)}/shared/config/secrets.yml"]
 
   # puma.rb 配置puma必须得文件夹及文件
-  queue! %[mkdir -p "#{fetch(:deploy_to)}/shared/tmp/pids"]
-  queue! %[chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/tmp/pids"]
+  command %[mkdir -p "#{fetch(:deploy_to)}/shared/tmp/pids"]
+  command %[chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/tmp/pids"]
 
-  queue! %[mkdir -p "#{fetch(:deploy_to)}/shared/tmp/sockets"]
-  queue! %[chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/tmp/sockets"]
+  command %[mkdir -p "#{fetch(:deploy_to)}/shared/tmp/sockets"]
+  command %[chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/tmp/sockets"]
 
-  queue! %[touch "#{fetch(:deploy_to)}/shared/config/puma.rb"]
-  queue  %[echo "-----> Be sure to edit 'shared/config/puma.rb'."]
+  command %[touch "#{fetch(:deploy_to)}/shared/config/puma.rb"]
+  command  %[echo "-----> Be sure to edit 'shared/config/puma.rb'."]
 
   # tmp/sockets/puma.state
-  queue! %[touch "#{fetch(:deploy_to)}/shared/tmp/sockets/puma.state"]
-  queue  %[echo "-----> Be sure to edit 'shared/tmp/sockets/puma.state'."]
+  command %[touch "#{fetch(:deploy_to)}/shared/tmp/sockets/puma.state"]
+  command  %[echo "-----> Be sure to edit 'shared/tmp/sockets/puma.state'."]
 
   # log/puma.stdout.log
-  queue! %[touch "#{fetch(:deploy_to)}/shared/log/puma.stdout.log"]
-  queue  %[echo "-----> Be sure to edit 'shared/log/puma.stdout.log'."]
+  command %[touch "#{fetch(:deploy_to)}/shared/log/puma.stdout.log"]
+  command  %[echo "-----> Be sure to edit 'shared/log/puma.stdout.log'."]
 
   # log/puma.stdout.log
-  queue! %[touch "#{fetch(:deploy_to)}/shared/log/puma.stderr.log"]
-  queue  %[echo "-----> Be sure to edit 'shared/log/puma.stderr.log'."]
+  command %[touch "#{fetch(:deploy_to)}/shared/log/puma.stderr.log"]
+  command  %[echo "-----> Be sure to edit 'shared/log/puma.stderr.log'."]
 
-  queue  %[echo "-----> Be sure to edit '#{fetch(:deploy_to)}/shared/config/database.yml'."]
+  command  %[echo "-----> Be sure to edit '#{fetch(:deploy_to)}/shared/config/database.yml'."]
 end
 
 # Put any custom commands you need to run at setup
@@ -105,8 +105,8 @@ task :deploy do
       in_path(fetch(:current_path)) do
         #command %{mkdir -p tmp/}
         #command %{touch tmp/restart.txt}
-        queue "mkdir -p #{fetch(:deploy_to)}/#{current_path}/tmp/"
-        queue "touch #{fetch(:deploy_to)}/#{current_path}/tmp/restart.txt"
+        command "mkdir -p #{fetch(:deploy_to)}/#{current_path}/tmp/"
+        command "touch #{fetch(:deploy_to)}/#{current_path}/tmp/restart.txt"
       end
     end
   end
