@@ -105,8 +105,8 @@ task :deploy do
       in_path(fetch(:current_path)) do
         #command %{mkdir -p tmp/}
         #command %{touch tmp/restart.txt}
-        command "mkdir -p #{fetch(:deploy_to)}/current/tmp/"
-        command "touch #{fetch(:deploy_to)}/current/tmp/restart.txt"
+        command "mkdir -p #{fetch(:deploy_to)}/#{fetch(:current)}/tmp/"
+        command "touch #{fetch(:deploy_to)}/#{fetch(:current)}/tmp/restart.txt"
       end
     end
   end
