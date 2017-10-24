@@ -10,13 +10,13 @@ require 'mina/git'
 #   branch       - Branch name to deploy. (needed by mina/git)
 
 set :application_name, 'foobar'
-set :domain, 'root@39.108.232.49'#服务器地址,是使用ssh的方式登录服务器
-set :deploy_to, '/home/deploy/ggl'#服务器中项目部署位置
-set :repository, 'https://github.com/jx-bamboo/ggl.git'#git代码仓库
-set :branch, 'master'#git分支
+set :domain, 'root@39.108.232.49' #服务器地址,是使用ssh的方式登录服务器
+set :deploy_to, '/home/deploy/ggl' #服务器中项目部署位置
+set :repository, 'https://github.com/jx-bamboo/ggl.git' #git代码仓库
+set :branch, 'master' #git分支
 
 # 中括号里的文件 会出现在服务器项目附录的shared文件夹中，这里加入了secrets.yml，环境密钥无需跟开发计算机一样
-set :shared_paths, ['config/database.yml', 'log', 'config/secrets.yml']
+#set :shared_paths, ['config/database.yml', 'log', 'config/secrets.yml']
 
 
 # Optional settings:
@@ -26,7 +26,7 @@ set :shared_paths, ['config/database.yml', 'log', 'config/secrets.yml']
 
 # shared dirs and files will be symlinked into the app-folder by the 'deploy:link_shared_paths' step.
 # set :shared_dirs, fetch(:shared_dirs, []).push('somedir')
-# set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/secrets.yml')
+set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/secrets.yml')
 
 # This task is the environment that is loaded for all remote run commands, such as
 # `mina deploy` or `mina rake`.
@@ -84,7 +84,7 @@ end
 
 #这个代码块表示运行 mina deploy时执行的命令
 desc "Deploys the current version to the server."
-task :deploy => :environment do
+task :deploy do
   # uncomment this line to make sure you pushed your local branch to the remote origin
   # invoke :'git:ensure_pushed'
   deploy do
