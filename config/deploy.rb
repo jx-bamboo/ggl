@@ -26,6 +26,7 @@ set :branch, 'master' #git分支
 
 # shared dirs and files will be symlinked into the app-folder by the 'deploy:link_shared_paths' step.
 # set :shared_dirs, fetch(:shared_dirs, []).push('somedir')
+set :shared_dirs,['tmp','log','uploads']
 set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/secrets.yml')
 
 # This task is the environment that is loaded for all remote run commands, such as
@@ -41,15 +42,15 @@ task :environment do
   # invoke :'rvm:use', 'ruby-1.9.3-p125@default'
 
   # 在服务器项目目录的shared中创建log文件夹
-  queue! %[mkdir -p "#{fetch(:deploy_to)}/#{shared_path}/log"]
-  queue! %[chmod g+rx,u+rwx "#{fetch(:deploy_to)}/#{shared_path}/log"]
+  queue! %[mkdir -p "#{fetch(:deploy_to)}/shared/log"]
+  queue! %[chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/log"]
 
   # 在服务器项目目录的shared中创建config文件夹 下同
-  queue! %[mkdir -p "#{fetch(:deploy_to)}/#{shared_path}/config"]
-  queue! %[chmod g+rx,u+rwx "#{fetch(:deploy_to)}/#{shared_path}/config"]
+  queue! %[mkdir -p "#{fetch(:deploy_to)}/shared/config"]
+  queue! %[chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/config"]
 
-  queue! %[touch "#{fetch(:deploy_to)}/#{shared_path}/config/database.yml"]
-  queue! %[touch "#{fetch(:deploy_to)}/#{shared_path}/config/secrets.yml"]
+  queue! %[touch "#{fetch(:deploy_to)}/shared/config/database.yml"]
+  queue! %[touch "#{fetch(:deploy_to)}/shared/config/secrets.yml"]
 
   # puma.rb 配置puma必须得文件夹及文件
   queue! %[mkdir -p "#{fetch(:deploy_to)}/shared/tmp/pids"]
@@ -73,7 +74,7 @@ task :environment do
   queue! %[touch "#{fetch(:deploy_to)}/shared/log/puma.stderr.log"]
   queue  %[echo "-----> Be sure to edit 'shared/log/puma.stderr.log'."]
 
-  queue  %[echo "-----> Be sure to edit '#{fetch(:deploy_to)}/#{shared_path}/config/database.yml'."]
+  queue  %[echo "-----> Be sure to edit '#{fetch(:deploy_to)}/shared/config/database.yml'."]
 end
 
 # Put any custom commands you need to run at setup
