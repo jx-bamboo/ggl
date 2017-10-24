@@ -10,7 +10,7 @@ require 'mina/git'
 #   branch       - Branch name to deploy. (needed by mina/git)
 
 set :application_name, 'foobar'
-set :domain, 'deploy@39.108.232.49' #服务器地址,是使用ssh的方式登录服务器
+set :domain, 'root@39.108.232.49' #服务器地址,是使用ssh的方式登录服务器
 set :deploy_to, '/home/deploy/ggl' #服务器中项目部署位置
 set :repository, 'https://github.com/jx-bamboo/ggl.git' #git代码仓库
 set :branch, 'master' #git分支
