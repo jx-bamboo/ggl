@@ -20,6 +20,16 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+
 production:
-  <<: *default
-  database: db/production.sqlite3
+  #<<: *default
+  #database: db/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: ggl_production
+  host: 127.0.0.1
+  pool: 5
+  username: baseico
+  password: Eic5LkVudh
+
+
