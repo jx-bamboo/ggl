@@ -1,0 +1,2 @@
+default: $defaults
+  APP_DIRECTORY: '/home/deploy/ggl'
