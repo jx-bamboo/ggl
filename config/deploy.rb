@@ -3,6 +3,7 @@ require 'mina/bundler'
 require 'mina/git'
 # require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
 require 'mina/rvm'    # for rvm support. (https://rvm.io)
+require 'mina/puma'
 
 
 # Basic settings:
@@ -107,6 +108,8 @@ task :deploy do
       in_path(fetch(:current_path)) do
         #command %{mkdir -p tmp/}
         #command %{touch tmp/restart.txt}
+        invoke :'puma:stop'
+        invoke :'puma:start'
         command "mkdir -p #{fetch(:deploy_to)}/#{fetch(:current)}/tmp/"
         command "touch #{fetch(:deploy_to)}/#{fetch(:current)}/tmp/restart.txt"
       end
