@@ -90,8 +90,6 @@ desc "Deploys the current version to the server."
 task :deploy do
   # uncomment this line to make sure you pushed your local branch to the remote origin
   # invoke :'git:ensure_pushed'
-  to :before_hook do
-  end
   deploy do
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
