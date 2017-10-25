@@ -24,12 +24,12 @@ test:
 production:
   #<<: *default
   #database: db/production.sqlite3
-  adapter: postgresql
-  encoding: unicode
+  adapter: sqlite3
+  encoding: utf8
   database: ggl_production
   host: 127.0.0.1
   pool: 5
-  username: baseico
-  password: Eic5LkVudh
+  username: ggl
+  password: 123456
 
 
