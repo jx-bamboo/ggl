@@ -90,6 +90,8 @@ desc "Deploys the current version to the server."
 task :deploy do
   # uncomment this line to make sure you pushed your local branch to the remote origin
   # invoke :'git:ensure_pushed'
+  to :before_hook do
+  end
   deploy do
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
@@ -107,8 +109,6 @@ task :deploy do
       in_path(fetch(:current_path)) do
         #command %{mkdir -p tmp/}
         #command %{touch tmp/restart.txt}
-        invoke :'puma:stop'
-        invoke :'puma:start'
         command "mkdir -p #{fetch(:deploy_to)}/#{fetch(:current)}/tmp/"
         command "touch #{fetch(:deploy_to)}/#{fetch(:current)}/tmp/restart.txt"
       end
