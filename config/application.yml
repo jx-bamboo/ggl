@@ -1,2 +1,38 @@
-default: $defaults
-  APP_DIRECTORY: '/home/deploy/ggl'
+# Add configuration values here, as shown below.
+#
+# pusher_app_id: "2954"
+# pusher_key: 7381a978f7dd7f9a1117
+# pusher_secret: abdc3b896a0ffb85d373
+# stripe_api_key: sk_test_2J0l093xOyW72XUYJHE4Dv2r
+# stripe_publishable_key: pk_test_ro9jV5SNwGb1yYlQfzG17LHK
+#
+# production:
+#   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
+#   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
+
+default: &defaults
+  SMTP_PORT: 25
+  SMTP_DOMAIN: 'mail.baseico.com'
+  SMTP_ADDRESS: 'smtp.mailgun.org'
+  SMTP_USERNAME: 'postmaster@mail.baseico.com'
+  SMTP_PASSWORD: '50939d0961674414cdb55bfca155566b'
+  SMTP_AUTHENTICATION: 'login'
+
+  RAILS_SERVE_STATIC_FILES: true
+
+  HOST_NAME: '127.0.0.1'
+  HOST_PORT: '3000'
+  APP_DIRECTORY: '/Users/hello'
+  RAILS_ENV: 'development'
+
+  # SMS
+  TWILIO_NUMBER: '+12013800267'
+  TWILIO_SID: 'AC9a337b7c2d3482e8012a9fe8f695a6a7'
+  TWILIO_TOKEN: '61daff6566b92acee4923da7a78d4c5a'
+
+  REDIS_HOST: '127.0.0.1'
+
+production:
+  <<: *defaults
+development:
+  <<: *defaults
