@@ -17,8 +17,9 @@ port        ENV.fetch("PORT") { 3000 }
 #environment ENV.fetch("RAILS_ENV") { "development" }
 environment ENV.fetch("RAILS_ENV") { "production" }
 
-app_dir = ENV['APP_DIRECTORY']
-shared_dir = "#{app_dir}/shared"
+#app_dir = ENV['APP_DIRECTORY']
+#shared_dir = "#{app_dir}/shared"
+shared_dir = "/home/deploy/ggl/shared"
 
 # Set up socket location
 bind "unix://#{shared_dir}/tmp/sockets/puma.sock"
