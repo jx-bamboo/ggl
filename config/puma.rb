@@ -18,7 +18,7 @@ port        ENV.fetch("PORT") { 3000 }
 environment ENV.fetch("RAILS_ENV") { "production" }
 
 
-app_dir = "/home/deploy/ggl/current"
+app_dir = "/home/deploy/ggl"
 shared_dir = "#{app_dir}/shared"
 
 
