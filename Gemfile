@@ -55,5 +55,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'mina'
 gem 'mina-puma', :require => false
-gem 'daemons'
+#gem 'daemons'
 

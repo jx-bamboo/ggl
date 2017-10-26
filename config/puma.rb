@@ -67,9 +67,9 @@ state_path "#{shared_dir}/tmp/pids/puma.state"
 
 # Allow puma to be restarted by `rails restart` command.
 #后台运行
-daemonize true
-on_restart do
-  puts 'On restart...'
-end
+# daemonize true
+# on_restart do
+#   puts 'On restart...'
+# end
 
 plugin :tmp_restart
