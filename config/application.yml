@@ -11,24 +11,24 @@
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 
 default: &defaults
-  SMTP_PORT: 25
-  SMTP_DOMAIN: 'mail.baseico.com'
-  SMTP_ADDRESS: 'smtp.mailgun.org'
-  SMTP_USERNAME: 'postmaster@mail.baseico.com'
-  SMTP_PASSWORD: '50939d0961674414cdb55bfca155566b'
-  SMTP_AUTHENTICATION: 'login'
+  # SMTP_PORT: 25
+  # SMTP_DOMAIN: 'mail.baseico.com'
+  # SMTP_ADDRESS: 'smtp.mailgun.org'
+  # SMTP_USERNAME: 'postmaster@mail.baseico.com'
+  # SMTP_PASSWORD: '50939d0961674414cdb55bfca155566b'
+  # SMTP_AUTHENTICATION: 'login'
 
-  RAILS_SERVE_STATIC_FILES: true
+  # RAILS_SERVE_STATIC_FILES: true
 
-  HOST_NAME: '127.0.0.1'
-  HOST_PORT: '3000'
-  APP_DIRECTORY: '/Users/hello'
-  RAILS_ENV: 'development'
+  # HOST_NAME: '127.0.0.1'
+  # HOST_PORT: '3000'
+  APP_DIRECTORY: '/home/deploy/ggl'
+  # RAILS_ENV: 'development'
 
   # SMS
-  TWILIO_NUMBER: '+12013800267'
-  TWILIO_SID: 'AC9a337b7c2d3482e8012a9fe8f695a6a7'
-  TWILIO_TOKEN: '61daff6566b92acee4923da7a78d4c5a'
+  # TWILIO_NUMBER: '+12013800267'
+  # TWILIO_SID: 'AC9a337b7c2d3482e8012a9fe8f695a6a7'
+  # TWILIO_TOKEN: '61daff6566b92acee4923da7a78d4c5a'
 
   REDIS_HOST: '127.0.0.1'
 
