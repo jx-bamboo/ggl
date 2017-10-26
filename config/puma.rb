@@ -68,9 +68,9 @@ bind "unix://#{shared_dir}/tmp/sockets/puma.sock"
 
 # Allow puma to be restarted by `rails restart` command.
 #后台运行
-# daemonize true
-# on_restart do
-#   puts 'On restart...'
-# end
+daemonize true
+on_restart do
+  puts 'On restart...'
+end
 
 plugin :tmp_restart
