@@ -17,15 +17,16 @@ port        ENV.fetch("PORT") { 3000 }
 #environment ENV.fetch("RAILS_ENV") { "development" }
 environment ENV.fetch("RAILS_ENV") { "production" }
 
-app_dir = ENV['APP_DIRECTORY']
+app_dir = "/home/deploy/ggl"
 shared_dir = "#{app_dir}/shared"
 
-# Set up socket location
-bind "unix://#{shared_dir}/tmp/sockets/puma.sock"
 
 # Set pid and state location
 pidfile "#{shared_dir}/tmp/pids/puma.pid"
 state_path "#{shared_dir}/tmp/pids/puma.state"
+
+# Set up socket location
+bind "unix://#{shared_dir}/tmp/sockets/puma.sock"
 
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together
